@@ -1,0 +1,10 @@
+version: '2'
+services:
+    campuz360-elasticsearch:
+        container_name: campuz360-elasticsearch
+        image: elasticsearch:1.7.5
+        # volumes:
+        #     - ~/volumes/jhipster/Campuz360/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9200:9200
+            - 9300:9300
