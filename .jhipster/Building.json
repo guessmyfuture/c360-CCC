@@ -1,0 +1,61 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "buildingName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "buildingCoverImage",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "maxbytes"
+            ],
+            "fieldValidateRulesMaxbytes": "3400000"
+        },
+        {
+            "fieldName": "buildingImage1",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "buildingImage2",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "maxbytes"
+            ],
+            "fieldValidateRulesMaxbytes": "2100000"
+        },
+        {
+            "fieldName": "buildingImage3",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "maxbytes"
+            ],
+            "fieldValidateRulesMaxbytes": "2100000"
+        },
+        {
+            "fieldName": "buildingEstablishedYear",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160908083202",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "building",
+    "pagination": "pagination"
+}

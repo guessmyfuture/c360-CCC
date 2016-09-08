@@ -1,0 +1,162 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBuildingLabel">Create or edit a Building</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.building.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.building.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_buildingName">Building Name</label>
+            <input type="text" class="form-control" name="buildingName" id="field_buildingName"
+                    ng-model="vm.building.buildingName"
+                    required />
+            <div ng-show="editForm.buildingName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.buildingName.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setBuildingCoverImage($file, vm.building)" ngf-pattern="'image/*'">
+            <label class="control-label" for="field_buildingCoverImage">Building Cover Image</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.building.buildingCoverImageContentType + ';base64,' + vm.building.buildingCoverImage}}" style="max-height: 100px;" ng-if="vm.building.buildingCoverImage"/>
+                <div ng-if="vm.building.buildingCoverImage" class="help-block clearfix">
+                    <span class="pull-left">{{vm.building.buildingCoverImageContentType}}, {{vm.byteSize(vm.building.buildingCoverImage)}}</span>
+                    <button ng-click="vm.building.buildingCoverImage=null;vm.building.buildingCoverImageContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setBuildingCoverImage($file, vm.building)" accept="image/*">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="buildingCoverImage" id="field_buildingCoverImage"
+                    ng-model="vm.building.buildingCoverImage"
+                    maxbytes="3400000" />
+            <input type="hidden" class="form-control" name="buildingCoverImageContentType" id="field_buildingCoverImageContentType"
+                    ng-model="vm.building.buildingCoverImageContentType" />
+            <div ng-show="editForm.buildingCoverImage.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.buildingCoverImage.$error.maxbytes">
+                    This field cannot be more than 3400000.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setBuildingImage1($file, vm.building)" ngf-pattern="'image/*'">
+            <label class="control-label" for="field_buildingImage1">Building Image 1</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.building.buildingImage1ContentType + ';base64,' + vm.building.buildingImage1}}" style="max-height: 100px;" ng-if="vm.building.buildingImage1"/>
+                <div ng-if="vm.building.buildingImage1" class="help-block clearfix">
+                    <span class="pull-left">{{vm.building.buildingImage1ContentType}}, {{vm.byteSize(vm.building.buildingImage1)}}</span>
+                    <button ng-click="vm.building.buildingImage1=null;vm.building.buildingImage1ContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setBuildingImage1($file, vm.building)" accept="image/*">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="buildingImage1" id="field_buildingImage1"
+                    ng-model="vm.building.buildingImage1"
+                     />
+            <input type="hidden" class="form-control" name="buildingImage1ContentType" id="field_buildingImage1ContentType"
+                    ng-model="vm.building.buildingImage1ContentType" />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setBuildingImage2($file, vm.building)" ngf-pattern="'image/*'">
+            <label class="control-label" for="field_buildingImage2">Building Image 2</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.building.buildingImage2ContentType + ';base64,' + vm.building.buildingImage2}}" style="max-height: 100px;" ng-if="vm.building.buildingImage2"/>
+                <div ng-if="vm.building.buildingImage2" class="help-block clearfix">
+                    <span class="pull-left">{{vm.building.buildingImage2ContentType}}, {{vm.byteSize(vm.building.buildingImage2)}}</span>
+                    <button ng-click="vm.building.buildingImage2=null;vm.building.buildingImage2ContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setBuildingImage2($file, vm.building)" accept="image/*">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="buildingImage2" id="field_buildingImage2"
+                    ng-model="vm.building.buildingImage2"
+                    maxbytes="2100000" />
+            <input type="hidden" class="form-control" name="buildingImage2ContentType" id="field_buildingImage2ContentType"
+                    ng-model="vm.building.buildingImage2ContentType" />
+            <div ng-show="editForm.buildingImage2.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.buildingImage2.$error.maxbytes">
+                    This field cannot be more than 2100000.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setBuildingImage3($file, vm.building)" ngf-pattern="'image/*'">
+            <label class="control-label" for="field_buildingImage3">Building Image 3</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.building.buildingImage3ContentType + ';base64,' + vm.building.buildingImage3}}" style="max-height: 100px;" ng-if="vm.building.buildingImage3"/>
+                <div ng-if="vm.building.buildingImage3" class="help-block clearfix">
+                    <span class="pull-left">{{vm.building.buildingImage3ContentType}}, {{vm.byteSize(vm.building.buildingImage3)}}</span>
+                    <button ng-click="vm.building.buildingImage3=null;vm.building.buildingImage3ContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setBuildingImage3($file, vm.building)" accept="image/*">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="buildingImage3" id="field_buildingImage3"
+                    ng-model="vm.building.buildingImage3"
+                    maxbytes="2100000" />
+            <input type="hidden" class="form-control" name="buildingImage3ContentType" id="field_buildingImage3ContentType"
+                    ng-model="vm.building.buildingImage3ContentType" />
+            <div ng-show="editForm.buildingImage3.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.buildingImage3.$error.maxbytes">
+                    This field cannot be more than 2100000.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_buildingEstablishedYear">Building Established Year</label>
+            <input type="number" class="form-control" name="buildingEstablishedYear" id="field_buildingEstablishedYear"
+                    ng-model="vm.building.buildingEstablishedYear"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_location">Location</label>
+            <input type="text" class="form-control" name="location" id="field_location"
+                    ng-model="vm.building.location"
+                    required />
+            <div ng-show="editForm.location.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.location.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

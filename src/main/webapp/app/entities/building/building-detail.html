@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span>Building</span> {{vm.building.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Building Name</span></dt>
+        <dd>
+            <span>{{vm.building.buildingName}}</span>
+        </dd>
+        <dt><span>Building Cover Image</span></dt>
+        <dd>
+            <div ng-if="vm.building.buildingCoverImage">
+                <a ng-click="vm.openFile(vm.building.buildingCoverImageContentType, vm.building.buildingCoverImage)">
+                    <img data-ng-src="{{'data:' + vm.building.buildingCoverImageContentType + ';base64,' + vm.building.buildingCoverImage}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.building.buildingCoverImageContentType}}, {{vm.byteSize(vm.building.buildingCoverImage)}}
+            </div>
+        </dd>
+        <dt><span>Building Image 1</span></dt>
+        <dd>
+            <div ng-if="vm.building.buildingImage1">
+                <a ng-click="vm.openFile(vm.building.buildingImage1ContentType, vm.building.buildingImage1)">
+                    <img data-ng-src="{{'data:' + vm.building.buildingImage1ContentType + ';base64,' + vm.building.buildingImage1}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.building.buildingImage1ContentType}}, {{vm.byteSize(vm.building.buildingImage1)}}
+            </div>
+        </dd>
+        <dt><span>Building Image 2</span></dt>
+        <dd>
+            <div ng-if="vm.building.buildingImage2">
+                <a ng-click="vm.openFile(vm.building.buildingImage2ContentType, vm.building.buildingImage2)">
+                    <img data-ng-src="{{'data:' + vm.building.buildingImage2ContentType + ';base64,' + vm.building.buildingImage2}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.building.buildingImage2ContentType}}, {{vm.byteSize(vm.building.buildingImage2)}}
+            </div>
+        </dd>
+        <dt><span>Building Image 3</span></dt>
+        <dd>
+            <div ng-if="vm.building.buildingImage3">
+                <a ng-click="vm.openFile(vm.building.buildingImage3ContentType, vm.building.buildingImage3)">
+                    <img data-ng-src="{{'data:' + vm.building.buildingImage3ContentType + ';base64,' + vm.building.buildingImage3}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.building.buildingImage3ContentType}}, {{vm.byteSize(vm.building.buildingImage3)}}
+            </div>
+        </dd>
+        <dt><span>Building Established Year</span></dt>
+        <dd>
+            <span>{{vm.building.buildingEstablishedYear}}</span>
+        </dd>
+        <dt><span>Location</span></dt>
+        <dd>
+            <span>{{vm.building.location}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

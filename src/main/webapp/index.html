@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
     <!-- endinject -->
     <link rel="stylesheet" href="content/css/vendor.css">
+    <link rel="stylesheet" href="content/css/image-hover-effects.css">
+    <link rel="stylesheet" href="content/css/sidebar-advanced.css">
+
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
@@ -21,13 +24,14 @@
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
+
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
+    <section class="page-layout">
+
+        <div class="main-content" ui-view="content">
             <!-- Angular views -->
         </div>
-
+</section>
         <div class="footer" ng-cloak>
             <p>This is your footer</p>
         </div>
@@ -89,6 +93,13 @@
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
     <script src="app/entities/entity.state.js"></script>
+    <script src="app/entities/building/building-dialog.controller.js"></script>
+    <script src="app/entities/building/building-detail.controller.js"></script>
+    <script src="app/entities/building/building-delete-dialog.controller.js"></script>
+    <script src="app/entities/building/building.state.js"></script>
+    <script src="app/entities/building/building.service.js"></script>
+    <script src="app/entities/building/building.search.service.js"></script>
+    <script src="app/entities/building/building.controller.js"></script>
     <script src="app/components/util/truncate-words.filter.js"></script>
     <script src="app/components/util/truncate-characters.filter.js"></script>
     <script src="app/components/util/sort-by.directive.js"></script>
